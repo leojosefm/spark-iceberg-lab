@@ -1,0 +1,24 @@
+services:
+
+  notebook:
+
+    image: spark-iceberg-lab/base:1.0
+
+    build:
+      context: .
+      dockerfile: docker/base/Dockerfile
+
+    container_name: spark-notebook
+
+    hostname: spark-notebook
+
+    ports:
+      - "8888:8888"
+      - "4040:4040"
+
+    volumes:
+      - ./notebooks:/home/jmattam/notebooks
+      - ./data/raw:/data/raw
+      - ./data/warehouse:/data/warehouse
+
+    restart: unless-stopped
