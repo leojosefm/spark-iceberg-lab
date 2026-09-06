@@ -1,2 +1,5 @@
-/data
-.env
+
+data/raw/*
+data/warehouse/*
+!data/raw/.gitkeep
+!data/warehouse/.gitkeep
