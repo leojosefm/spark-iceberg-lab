@@ -20,5 +20,32 @@ services:
       - ./notebooks:/home/jmattam/notebooks
       - ./data/raw:/data/raw
       - ./data/warehouse:/data/warehouse
+      - ivy-cache:/home/jmattam/.ivy2
 
     restart: unless-stopped
+
+  postgres:
+    image: postgres:16
+
+    container_name: hive-postgres
+
+    environment:
+      POSTGRES_USER: hive
+      POSTGRES_PASSWORD: hive
+      POSTGRES_DB: metastore
+
+    ports:
+      - "5433:5432"
+
+    volumes:
+      - hive-postgres-data:/var/lib/postgresql/data
+
+    restart: unless-stopped
+
+volumes:
+  hive-postgres-data:
+  ivy-cache:
+
+networks:
+  spark-network:
+    driver: bridge
