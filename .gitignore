@@ -1,4 +1,8 @@
 data/raw/
 data/warehouse/db
+data/warehouse/bronze.db
+data/warehouse/silver.db
+data/warehouse/gold.db
+
 !data/raw/.gitkeep
 !data/warehouse/.gitkeep
