@@ -190,7 +190,7 @@ real table content (data + full metadata history) lives as files under
 
 ---
 
-## 6. Query cheat-sheet (`query-iceberg.ipynb`)
+## 6. Querying Iceberg (`query-iceberg.ipynb`)
 
 ```python
 # Basic read
