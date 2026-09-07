@@ -111,16 +111,10 @@ docker compose up -d notebook
 - Hive Metastore Thrift port (not browsable — binary protocol, not HTTP): `localhost:9083`
 - Postgres (host access): `localhost:5433` (internal container-to-container port is `5432`)
 
-### Common gotchas hit while setting this up
-- **Named volumes (`ivy-cache`, and any fresh bind-mount target Docker creates)
-  can end up owned by `root`**, causing `PermissionError`/403 errors when Jupyter
-  or Ivy try to write. Fix:
-  ```bash
-  docker exec -u root spark-notebook chown -R jmattam:jmattam <path>
-  ```
-  This is now handled automatically on every container start via `entrypoint.sh`
-  (see `docker/base/entrypoint.sh`) — it `chown`s the known mount points before
-  dropping to the `jmattam` user.
+PostgreSQL JDBC driver (jars/postgresql-42.7.3.jar) - JDBC driver for Hive Metastore backend (Postgres
+
+### Issues encountered while setting this up
+
 - **`./notebooks` relative path resolves from wherever you run `docker compose`**,
   not from the project folder by assumption — always `cd` into the project root
   first, or you'll get an unexpected empty mount.
