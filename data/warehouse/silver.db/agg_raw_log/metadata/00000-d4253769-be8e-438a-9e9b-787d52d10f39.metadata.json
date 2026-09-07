@@ -1,0 +1,94 @@
+{
+  "format-version" : 2,
+  "table-uuid" : "b95d1950-d07a-4294-b73d-008dfc73172e",
+  "location" : "file:/data/warehouse/silver.db/agg_raw_log",
+  "last-sequence-number" : 1,
+  "last-updated-ms" : 1788729025093,
+  "last-column-id" : 6,
+  "current-schema-id" : 0,
+  "schemas" : [ {
+    "type" : "struct",
+    "schema-id" : 0,
+    "fields" : [ {
+      "id" : 1,
+      "name" : "ChassisId",
+      "required" : false,
+      "type" : "string"
+    }, {
+      "id" : 2,
+      "name" : "CreationDateTime",
+      "required" : false,
+      "type" : "timestamptz"
+    }, {
+      "id" : 3,
+      "name" : "LogId",
+      "required" : false,
+      "type" : "int"
+    }, {
+      "id" : 4,
+      "name" : "MEASURE_CODE_ACC",
+      "required" : false,
+      "type" : "string"
+    }, {
+      "id" : 5,
+      "name" : "PIPELINE",
+      "required" : false,
+      "type" : "string"
+    }, {
+      "id" : 6,
+      "name" : "MEASURE_CODE_ACC_VALUE",
+      "required" : false,
+      "type" : "double"
+    } ]
+  } ],
+  "default-spec-id" : 0,
+  "partition-specs" : [ {
+    "spec-id" : 0,
+    "fields" : [ ]
+  } ],
+  "last-partition-id" : 999,
+  "default-sort-order-id" : 0,
+  "sort-orders" : [ {
+    "order-id" : 0,
+    "fields" : [ ]
+  } ],
+  "properties" : {
+    "owner" : "jmattam",
+    "write.parquet.compression-codec" : "zstd"
+  },
+  "current-snapshot-id" : 1986763261127152283,
+  "refs" : {
+    "main" : {
+      "snapshot-id" : 1986763261127152283,
+      "type" : "branch"
+    }
+  },
+  "snapshots" : [ {
+    "sequence-number" : 1,
+    "snapshot-id" : 1986763261127152283,
+    "timestamp-ms" : 1788729025093,
+    "summary" : {
+      "operation" : "append",
+      "spark.app.id" : "local-1788728704269",
+      "added-data-files" : "1",
+      "added-records" : "1334",
+      "added-files-size" : "15210",
+      "changed-partition-count" : "1",
+      "total-records" : "1334",
+      "total-files-size" : "15210",
+      "total-data-files" : "1",
+      "total-delete-files" : "0",
+      "total-position-deletes" : "0",
+      "total-equality-deletes" : "0"
+    },
+    "manifest-list" : "file:/data/warehouse/silver.db/agg_raw_log/metadata/snap-1986763261127152283-1-77c5f6b9-5502-4bde-b935-92a3b5ca17bd.avro",
+    "schema-id" : 0
+  } ],
+  "statistics" : [ ],
+  "partition-statistics" : [ ],
+  "snapshot-log" : [ {
+    "timestamp-ms" : 1788729025093,
+    "snapshot-id" : 1986763261127152283
+  } ],
+  "metadata-log" : [ ]
+}

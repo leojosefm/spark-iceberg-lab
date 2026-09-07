@@ -1,5 +1,4 @@
-
-data/raw/*
-data/warehouse/*
+data/raw/
+data/warehouse/db
 !data/raw/.gitkeep
 !data/warehouse/.gitkeep

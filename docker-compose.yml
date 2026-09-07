@@ -1,7 +1,6 @@
 services:
 
   notebook:
-
     image: spark-iceberg-lab/base:1.0
 
     build:
@@ -9,7 +8,6 @@ services:
       dockerfile: docker/base/Dockerfile
 
     container_name: spark-notebook
-
     hostname: spark-notebook
 
     ports:
@@ -21,6 +19,12 @@ services:
       - ./data/raw:/data/raw
       - ./data/warehouse:/data/warehouse
       - ivy-cache:/home/jmattam/.ivy2
+
+    depends_on:
+      - hive-metastore
+
+    networks:
+      - spark-network
 
     restart: unless-stopped
 
@@ -39,6 +43,38 @@ services:
 
     volumes:
       - hive-postgres-data:/var/lib/postgresql/data
+
+    networks:
+      - spark-network
+
+    restart: unless-stopped
+
+  hive-metastore:
+    image: apache/hive:4.0.0
+    container_name: hive-metastore
+    hostname: hive-metastore
+
+    environment:
+      SERVICE_NAME: metastore
+      DB_DRIVER: postgres
+      SERVICE_OPTS: >-
+        -Djavax.jdo.option.ConnectionDriverName=org.postgresql.Driver
+        -Djavax.jdo.option.ConnectionURL=jdbc:postgresql://postgres:5432/metastore
+        -Djavax.jdo.option.ConnectionUserName=hive
+        -Djavax.jdo.option.ConnectionPassword=hive
+
+    volumes:
+      - ./jars/postgresql-42.7.3.jar:/opt/hive/lib/postgresql-42.7.3.jar
+      - ./data/warehouse:/data/warehouse   # ← add this
+
+    ports:
+      - "9083:9083"
+
+    depends_on:
+      - postgres
+
+    networks:
+      - spark-network
 
     restart: unless-stopped
 

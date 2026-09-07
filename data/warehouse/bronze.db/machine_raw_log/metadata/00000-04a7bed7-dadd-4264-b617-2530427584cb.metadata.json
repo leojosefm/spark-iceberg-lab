@@ -1,0 +1,89 @@
+{
+  "format-version" : 2,
+  "table-uuid" : "37369f5d-d81c-49cb-b4b2-ff653a7b1d5f",
+  "location" : "file:/data/warehouse/bronze.db/machine_raw_log",
+  "last-sequence-number" : 1,
+  "last-updated-ms" : 1788728927971,
+  "last-column-id" : 5,
+  "current-schema-id" : 0,
+  "schemas" : [ {
+    "type" : "struct",
+    "schema-id" : 0,
+    "fields" : [ {
+      "id" : 1,
+      "name" : "ChassisId",
+      "required" : false,
+      "type" : "string"
+    }, {
+      "id" : 2,
+      "name" : "Cell",
+      "required" : false,
+      "type" : "int"
+    }, {
+      "id" : 3,
+      "name" : "LogId",
+      "required" : false,
+      "type" : "int"
+    }, {
+      "id" : 4,
+      "name" : "CellValue",
+      "required" : false,
+      "type" : "int"
+    }, {
+      "id" : 5,
+      "name" : "CreationDateTime",
+      "required" : false,
+      "type" : "timestamptz"
+    } ]
+  } ],
+  "default-spec-id" : 0,
+  "partition-specs" : [ {
+    "spec-id" : 0,
+    "fields" : [ ]
+  } ],
+  "last-partition-id" : 999,
+  "default-sort-order-id" : 0,
+  "sort-orders" : [ {
+    "order-id" : 0,
+    "fields" : [ ]
+  } ],
+  "properties" : {
+    "owner" : "jmattam",
+    "write.parquet.compression-codec" : "zstd"
+  },
+  "current-snapshot-id" : 6397420534636200852,
+  "refs" : {
+    "main" : {
+      "snapshot-id" : 6397420534636200852,
+      "type" : "branch"
+    }
+  },
+  "snapshots" : [ {
+    "sequence-number" : 1,
+    "snapshot-id" : 6397420534636200852,
+    "timestamp-ms" : 1788728927971,
+    "summary" : {
+      "operation" : "append",
+      "spark.app.id" : "local-1788728704269",
+      "added-data-files" : "1",
+      "added-records" : "51410",
+      "added-files-size" : "123269",
+      "changed-partition-count" : "1",
+      "total-records" : "51410",
+      "total-files-size" : "123269",
+      "total-data-files" : "1",
+      "total-delete-files" : "0",
+      "total-position-deletes" : "0",
+      "total-equality-deletes" : "0"
+    },
+    "manifest-list" : "file:/data/warehouse/bronze.db/machine_raw_log/metadata/snap-6397420534636200852-1-b229c8e1-aaf3-41d0-b96c-ede524f5ac83.avro",
+    "schema-id" : 0
+  } ],
+  "statistics" : [ ],
+  "partition-statistics" : [ ],
+  "snapshot-log" : [ {
+    "timestamp-ms" : 1788728927971,
+    "snapshot-id" : 6397420534636200852
+  } ],
+  "metadata-log" : [ ]
+}
